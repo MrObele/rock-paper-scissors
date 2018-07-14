@@ -1,0 +1,1 @@
+A mini-project from he Odin Project's curriculum - Web Development 101, JavaScript Basics
