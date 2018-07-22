@@ -1,0 +1,40 @@
+
+body{
+	background-color: black;
+	background: url("images/game-background.jpg") no-repeat;
+	background-size: cover;
+
+}
+.gameContainer{
+	color: white;
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5%;
+    padding: 20px;
+    background: #000000b0;
+}
+
+button{
+	    background-color: #8a6a53;
+    width: 90px;
+    height: 30px;
+    border-radius: 0px;
+    border: 1px solid #f3eaeacc;
+    color: white;
+}
+
+button:hover{
+	 border: 2px solid #f3eaeacc;
+	background-color: black;
+	width: 91px;
+    height: 31px;
+}
+
+.instructions >h1{
+	color: #8a7359;
+}
+
+.scoreDisplay > h1{
+	color: #8a7359;
+}
