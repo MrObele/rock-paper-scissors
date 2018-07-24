@@ -1,8 +1,15 @@
- let computerWins = 0;
-         let playerWins = 0;
+ 
+var finalResult = document.querySelector('.finalDisplay');
+finalResult.style = 'display:none';
+ var resultUpdates = document.querySelector('.resultUpdates');
+ var computerScore = 0;
+ var resultAnounced
+         var playerScore = 0;
+         var playerChoice = '';
+         var playNumber = 0;
          
          	function computerPlay(){
-         		let computerCoice = Math.floor(Math.random()*3);
+         		var computerCoice = Math.floor(Math.random()*3);
          		switch(computerCoice){
          			case 0:
          			return "rock";
@@ -18,69 +25,114 @@
          
          	function playRound(playerSelection, computerSelection){
          		if((computerSelection === "rock") && (playerSelection === "paper")){
-         			playerWins += 1;
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \n
-         			You win! Paper beats Rock  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+         			playerScore += 1;
+         			return ` computer Selected<span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \n
+         			You win! Paper beats Rock  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          
          		}else if((computerSelection === "rock") && (playerSelection === "scissors")){
-                     computerWins += 1;
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \nYou Lose! rock crushes scissors  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+                     computerScore += 1;
+         			return ` computer Selected <span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \nYou Lose! rock crushes scissors  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          		}else if((computerSelection === "rock") && (playerSelection === "rock")){
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \nIt was a tie  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+         			return ` computer Selected <span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \nIt was a tie  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          
          		}else if((computerSelection === "paper") && (playerSelection === "rock")){
-         			 computerWins += 1;
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \nYou Lose! paper covers rock  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+         			 computerScore += 1;
+         			return ` computer Selected <span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \nYou Lose! paper covers rock  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          
          		}else if((computerSelection === "paper") && (playerSelection === "paper")){
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \nIt was a tie  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+         			return ` computer Selected <span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \nIt was a tie  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          		}else if((computerSelection === "paper") && (playerSelection === "scissors")){
-         			playerWins += 1;
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \nYou win! scissors cuts paper  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+         			playerScore += 1;
+         			return ` computer Selected <span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \nYou win! scissors cuts paper  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          
          		}else if((computerSelection === "scissors") && (playerSelection === "rock")){
-         			playerWins += 1;
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \nYou win! rock crushes scissors  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+         			playerScore += 1;
+         			return ` computer Selected <span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \nYou win! rock crushes scissors  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          
          		}else if((computerSelection === "scissors") && (playerSelection === "paper")){
-         			computerWins += 1;
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \nYou Lose! scissors cuts paper  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+         			computerScore += 1;
+         			return ` computer Selected <span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \nYou Lose! scissors cuts paper  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          		}else if((computerSelection === "rock") && (playerSelection === "rock")){
-         			return ` computer Selected ${computerSelection} :  You selected ${playerSelection}  \nIt was a tie  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
+         			return ` computer Selected <span class="computer-selection"> ${computerSelection} :</span>  You selected <span class="player-selection"> ${playerSelection} </span>  \nIt was a tie  \n\n
+         			Computer: ${computerScore}  &nbsp;&nbsp;&nbsp; you: ${playerScore}`;
          
-         		}else{
-         			return ` computer selection: ${computerSelection}  You selected ${playerSelection}  \nno match found  \n
-         			Computer: ${computerWins}  you: ${playerWins}`;
          		}
          	}
+           var gameOptions = document.querySelector('.gameOptions');
+            var playRounds = document.querySelector('.playRounds');
+           playRounds.innerText = playNumber;
+          var playerScoreValue = document.querySelector('.playerScore');
+          playerScoreValue.innerText = playerScore;
+        
+         var computerScoreValue = document.querySelector('.computerScore');
+         computerScoreValue.innerText = computerScore;
          
-         function game(){
-         for(let counter = 0; counter<5; counter++){
-         	let computerResult = computerPlay();
-         	
-         	 // let userInput = prompt("please enter a choice, rock, paper, scissors");
+          var replay = document.querySelector('.replayButton');
+           replay.addEventListener('click', restartGame);
+
+          var userChoice = Array.from(document.querySelectorAll('.btn-options'));
+          userChoice.forEach(key => key.addEventListener('click',game));
+
+
+            function restartGame(){
+                playRounds.innerText = 0;  
+
+               finalResult.style = 'display:none';
+                gameOptions.style  = 'display:block';
+               resultUpdates.innerHTML = '';
+               computerScore = 0;
+               playerScore = 0;
+               playerChoice = '';
+               playNumber = 0;
+            }
          
-         	 userInput = userInput.toLowerCase();
-         	let resultAnounced = playRound(userInput, computerResult);
-         	console.log(resultAnounced);
-         }
-         
-         if (computerWins > playerWins) {
-            console.log(`computer wins with: ${computerWins-playerWins} points`);
-         }else if(computerWins< playerWins){
-         	console.log(`you  wins with: ${playerWinds- playerWins} points`);
+          function changeValues(){
+         playRounds.innerText = playNumber;         
+          playerScoreValue.innerText = playerScore;        
+         computerScoreValue.innerText = computerScore;
+          }
+         function game(e){
+            playNumber++;
+             changeValues();
+
+               if(playNumber<5){
+                   playerChoice = e.target.textContent;
+            var computerResult = computerPlay();
+            
+             playerChoice = playerChoice.toLowerCase();
+            resultAnounced = playRound(playerChoice, computerResult);
+
+           resultUpdates = document.querySelector('.resultUpdates');
+            resultUpdates.innerHTML = resultAnounced;
+               }else{
+                   var winnerPoint = document.querySelector('.winnerPoints');
+                  finalResult.style = 'display:block';
+                  gameOptions.style  = 'display:none';
+                   if (computerScore > playerScore) {
+                    
+                     winnerPoint.textContent = `computer won with: ${computerScore-playerScore} point(s)`;
+
+         }else if(computerScore< playerScore){
+             winnerPoint.textContent = `you  won with: ${playerScore- computerScore} point(s)`;
          }else{
-         	console.log("it was a draw");
+           winnerPoint.textContent = 'it was a tie';
          }
-         	 
-         }
-         game();
+       }
+
+            
+                    
+    }
+   
+
+       
+
+
+          

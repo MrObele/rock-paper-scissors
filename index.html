@@ -8,6 +8,7 @@
 
      <!--  custom css file -->
      <link rel="stylesheet" type="text/css" href="style.css">
+    
    </head>
    <body>
       <main class="gameContainer">
@@ -16,39 +17,47 @@
                ROCK PAPER SCISSORS GAME
             </h1>
             <p class="instructionsText">
-               Select an Option from the three buttons bellow.<br>
+               Select an Option from the three buttons below.<br>
                You have Five chances to play against the computer.<br>
                <span class="goodLuck">Good Luck!</span>
             </p>
          </section>
          <section class="resultUpdates">
-            <!-- <article class="resultMessage">
-               You won: rock crushes scissors
-            </article> -->
+
+            
+         </section >
+             
+         <section class="currentGameSore">
             <article class="scoreDisplay">
-               <h1>Score</h1>
+               <h1>Rounds</h1>
                <h3>
-                  You: <span class="scoreValue">0</span> &nbsp;&nbsp;&nbsp; Computer: <span class="scoreValue">0</span>
+                  <span class="playRounds">0</span> 
                </h3>
             </article>
          </section>
          <section class="gameOptions">
-            <button class="btn-options">Rock</button>
-            <button class="btn-options">Paper</button>
-            <button class="btn-options">Scissors</button>
+            <button class="btn-options" id="rock">Rock</button>
+            <button class="btn-options" id="paper">Paper</button>
+            <button class="btn-options" id="scissors">Scissors</button>
          </section>
-        <!--  <section class="finalResult">
-            <h2>Game Over!</h2>
-            <h3>
-               You won with: <span class="winPoint">5</span> Points
-            </h3>
+         <section class="finalDisplay">
+              <section class="finalResult">
+            <h1>Game Over!</h1>
+           <h2>Final Result</h2>
+               <h3 class="finalResultDisplay">
+                  You: <span class="playerScore"></span> &nbsp;&nbsp;&nbsp; Computer: <span class="computerScore"></span>
+               </h3>
+               <p class="winnerPoints"></p>
+            </article>
          </section>
          <section class="replayButton">
-            <button>
+            <button class="replayButton">
                Play Again!!!
             </button>
-         </section> -->
+         </section>
+         </section>
+         
       </main>
-      <script type="text/javascript" src="game.js"></script>
+       <script type="text/javascript" src="game.js"></script>
    </body>
 </html>

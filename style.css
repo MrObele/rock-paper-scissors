@@ -16,19 +16,17 @@ body{
 }
 
 button{
-	    background-color: #8a6a53;
+	background-color: #8a6a53;
     width: 90px;
     height: 30px;
     border-radius: 0px;
     border: 1px solid #f3eaeacc;
     color: white;
+    transition: all .07s ease;
 }
 
 button:hover{
-	 border: 2px solid #f3eaeacc;
 	background-color: black;
-	width: 91px;
-    height: 31px;
 }
 
 .instructions >h1{
@@ -37,4 +35,28 @@ button:hover{
 
 .scoreDisplay > h1{
 	color: #8a7359;
+} 
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+.resultUpdates{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.finalResultDisplay{
+    color: #8a7359;
+}
+.playerScore, .computerScore{
+    color: white;
+}
+
+.player-selection , .computer-selection{
+    color: #8a7359;
+    font-size: 1.5rem;
+    padding: 5px;
 }
